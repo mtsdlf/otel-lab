@@ -17,10 +17,12 @@ spec:
       labels:
         app: py-otel-client
         app.kubernetes.io/name: py-otel-client
+      annotations:
+        instrumentation.opentelemetry.io/inject-python: "true"
     spec:
       containers:
       - name: py-otel-client
-        image: otel-python-lab:0.1.0-py-otel-client
+        image: mtsdlf/otel-python-lab:0.7.0-py-otel-client
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 8082
